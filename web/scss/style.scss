@@ -1,0 +1,594 @@
+@import 'slick';
+@import 'slick-theme';
+
+//  ---------------------- FONTS --------------------------------------------------------
+// google fonts in link OpenSans and Source Sans Pro
+
+//  ---------------------- VARIBLES --------------------------------------------------------
+
+	// colors
+$white: #ffffff;
+$green: #19bd9a;
+$h1col: #333b46;
+$pcol: #81868e;
+
+
+	//variables width
+$w100: 100%;
+$w90: 86%;
+$bgcolor: #000;
+$tac: center;
+
+$slick-dot-size: 10px;
+$slick-dot-color-active: $green;
+$slick-dot-color: $green;
+
+
+//  ------------------------ MIXINS --------------------------------------------------------
+
+@mixin h($property) {
+	height: $property;
+}
+
+@mixin fs($property) {
+	font-size: $property;
+}
+
+@mixin mgA {
+	margin: 0 auto;
+}
+
+@mixin w($property) {
+	width: $property;
+}
+
+@mixin bgCol($property) {
+	background-color: $property;
+}
+
+@mixin lH($property) {
+	line-height: $property;
+}
+
+@mixin ls($property) {
+	letter-spacing: $property;
+}
+
+@mixin br($property) {
+	border-radius: $property;
+}
+
+
+// ----------------------- styles ----------------------
+
+body, html {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.head {
+	@include w($w100);
+	@include h(737px);
+	background: url('../img/head_bg.png') no-repeat;
+	background-size: cover;
+	
+	&__container {
+		@include w($w90);
+		margin: 0 auto;
+	}
+	
+	&__nav {
+		@include w($w100);
+		@include h(100px);
+		
+	}
+
+	&__logo {
+		@include fs(40px);
+		font-family: 'MyriadPro Regular';
+		font-weight: 900;
+		text-transform: uppercase;
+		color: $white;
+		float: left;
+		padding-top: 50px;
+	}
+
+	&__ul {
+		@include fs(0);
+		position: relative;
+		float: right
+	}
+
+	&__li {
+		display: inline-block;
+		padding: 5px;
+		margin-top: 40px;
+	}
+
+	&__a {
+		@include fs(16px);
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 400;
+		position: relative;
+		text-decoration: none;
+		color: $white;
+		padding: 10px 25px;
+		box-sizing: border-box;
+		
+		&:hover {
+			box-sizing: border-box;
+			border: 1px solid $white;
+			@include br(20px);
+		}
+	}
+
+	&__h1 {
+		text-align: $tac;
+		font-family: 'Source Sans Pro', sans-serif;
+		@include fs(35px);
+		@include ls(0.2em);
+		color: $white;
+		text-transform: uppercase;
+		font-weight: 300;
+		margin: 183px 0 35px 0;
+	}
+
+	&__p {
+		text-align: $tac;
+		font-family: 'Open Sans', sans-serif;
+		@include fs(16px);
+		font-weight: 400;
+		color: $white;
+		@include lH(28px);
+		@include ls(0.05em);
+	}
+
+}
+
+.scroll {
+	@include w(36px);
+	@include h(36px);
+	@include br(50%);
+	background: $green;
+	margin: 215px 0 0 50%;
+	display: block;
+	transform: translateX(-50%);
+	
+	& img {
+		margin: 50% 0 0 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+.main {
+	@include w($w100);
+	min-height: 800px;
+	@include bgCol(#f0f0f0);
+	background-size: cover;
+	
+	&__container {
+		@include w($w90);
+		margin: 0 auto;
+	}
+
+	&__h1 {
+		text-align: $tac;
+		font-family: 'Source Sans Pro', sans-serif;
+		@include fs(20px);
+		@include ls(0.2em);
+		color: $h1col;
+		text-transform: uppercase;
+		font-weight: 300;
+		padding: 89px 0 40px 0;
+	}
+
+	&__p {
+		text-align: $tac;
+		font-family: 'Open Sans', sans-serif;
+		@include fs(14px);
+		font-weight: 400;
+		color: $pcol;
+		@include lH(25px);
+		@include ls(0.05em);
+	}
+
+	&__ul {
+		@include fs(0);
+		position: relative;
+		margin-top: 55px;
+		text-align: center;
+	}
+
+	&__li {
+		display: inline-block;
+		padding: 20px 15px;
+	}
+
+	&__a {
+		@include fs(16px);
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 400;
+		position: relative;
+		text-decoration: none;
+		box-sizing: border-box;
+		color: #464646;
+		padding-bottom: 10px;
+		cursor: pointer;
+		
+		&:hover {
+			box-sizing: border-box;
+			border-bottom: 2px solid #19bd9a;
+		}
+	}
+
+	& .lis {
+		box-sizing: border-box;
+		border-bottom: 2px solid #19bd9a;
+	}
+
+	&__img {
+		@include w($w100);
+		min-height: 500px;
+		padding: 20px 0 100px 0;
+		
+		&--center {
+			padding-left: 90px;
+		}
+	}
+
+	.grid-item {
+		width: 20%;
+		padding: .5%;
+	}
+}
+
+.sect {
+	@include w($w100);
+	@include h(771px);
+	@include bgCol($white);
+	
+	&__container {
+		@include w($w90);
+		margin: 0 auto;
+	}
+
+	&__h1 {
+		text-align: $tac;
+		font-family: 'Source Sans Pro', sans-serif;
+		@include fs(20px);
+		@include ls(0.2em);
+		color: $h1col;
+		text-transform: uppercase;
+		font-weight: 300;
+		padding: 80px 0 35px 0;
+	}
+
+	&__p {
+		text-align: $tac;
+		font-family: 'Open Sans', sans-serif;
+		@include fs(14px);
+		font-weight: 400;
+		color: $pcol;
+		@include lH(25px);
+		@include ls(0.05em);
+		padding-bottom: 60px;
+	}
+}
+
+.container {
+	@include w($w90);
+	@include h(364px);
+	margin: 0 auto;
+	
+	&__item {
+
+		&--left {
+			@include w(50%);
+			@include h(364px);
+			float: left;
+		}
+
+		&--right {
+			@include w(50%);
+			@include h(364px);
+			float: right;
+		}
+
+		&--h1 {
+			font-family: 'Open Sans', sans-serif;
+			color: #464646;
+			@include fs(20px);
+			font-weight: 400;
+			text-align: right;
+			padding: 30px 50px 15px 0; 
+		}
+
+		&--h2 {
+			font-family: 'Source Sans Pro', sans-serif;
+			color: #81868e;
+			@include fs(14px);
+			font-weight: 300;
+			text-align: right;
+			text-transform: uppercase;
+			padding-right: 50px;
+		}
+
+		&--p {
+			font-family: 'Open Sans', sans-serif;
+			color: #81868e;
+			@include fs(14px);
+			font-weight: 400;
+			text-align: right;
+			@include lH(25px);
+			padding-right: 50px;
+			margin-top: 25px;
+		}
+
+		&--border {
+			@include w(4px);
+			@include h(42px);
+			@include bgCol($green);
+			position: relative;
+			transform: translate(575px, -293px);
+		}
+	}
+}
+
+.sect1 {
+	@include w($w100);
+	@include h(201px);
+	background: url('../img/sect_bg.png');
+	clear: both;
+	
+	&__container {
+		@include w($w90);
+		margin: 0 auto;
+	}
+	
+	&--h1 {
+		font-family: 'Open Sans', sans-serif;
+		color: $white;
+		@include fs(20px);
+		font-weight: 400;
+		text-align: $tac;
+		@include ls(0.04em);
+		padding: 55px 0 35px 0;
+	}
+
+	&--a {
+		font-family: 'Open Sans', sans-serif;
+		color: $white;
+		@include fs(16px);
+		font-weight: 400;
+		text-align: $tac;
+		text-decoration: none;
+		padding: 10px 30px;
+		box-sizing: border-box;
+		border: 2px solid $white; 
+		@include br(30px);
+		margin-left: 43%;
+		
+		&:hover {
+			background-color: $white;
+			color: #81868e;
+			transition: .6 linear; 
+		}
+	}
+}
+
+.sect2 {
+	@include w($w100);
+	min-height: 500px;
+	@include bgCol(#f0f0f0);
+	
+	&__container {
+		@include w($w90);
+		margin: 0 auto;
+	}
+	
+	&__h1 {
+		font-family: 'Source Sans Pro', sans-serif;
+		color: #333b46;
+		@include fs(20px);
+		font-weight: 400;
+		text-align: $tac;
+		text-transform: uppercase;
+		@include ls(0.04em);
+		@include ls(0.2em);
+		padding: 50px 0 30px 0;
+	}
+
+
+	&__p {
+		font-family: 'Open Sans', sans-serif;
+		color: #81868e;
+		@include fs(14px);
+		font-weight: 400;
+		text-align: $tac;
+		@include lH(25px);
+		padding-bottom: 50px;
+	}
+}
+
+.aside {
+	@include w($w100);
+	@include h(737px);
+	@include bgCol($white);
+	
+	&__container {
+		@include w($w90);
+		margin: 0 auto;
+	}
+	
+	&__h1 {
+		font-family: 'Source Sans Pro', sans-serif;
+		color: #333b46;
+		@include fs(20px);
+		font-weight: 400;
+		text-align: $tac;
+		text-transform: uppercase;
+		@include ls(0.2em);
+		padding: 70px 0 35px 0;
+	}
+
+
+	&__p {
+		font-family: 'Open Sans', sans-serif;
+		color: #81868e;
+		@include fs(14px);
+		font-weight: 400;
+		text-align: $tac;
+		@include lH(25px);
+		padding-bottom: 60px;
+	}
+}
+
+#map {
+	@include h(439px);
+	background: #eee;
+	width: 100%;
+}
+
+.cont__slide {
+	padding-bottom: 100px;
+	
+	&--item {
+		@include w($w100);
+		@include h(316px);
+		@include bgCol($white);
+		box-sizing: border-box;
+		box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.8);
+	}
+
+	& img {
+		margin: 52px 68px 0 92px;
+		float: left;
+	}
+	
+	&--p {
+		font-family: 'Open Sans', sans-serif;
+		color: #81868e;
+		@include fs(16px);
+		font-weight: 400;
+		text-align: left;
+		@include lH(25px);
+		padding: 60px 0 0 0;
+	}
+
+	&--h3 {
+		font-family: 'Open Sans', sans-serif;
+		color: $green;
+		@include fs(16px);
+		font-weight: 700;
+		text-align: left;
+		text-transform: uppercase;
+		@include ls(0.04);
+		padding: 30px 0 10px 0;
+	}
+
+	&--span {
+		font-family: 'Open Sans', sans-serif;
+		color: #464646;
+		@include fs(14px);
+		font-weight: 400;
+		text-transform: uppercase;
+		@include ls(0.04);
+		padding: 30px 0 10px 290px;
+	}
+}
+
+.foot {
+	@include w($w100);
+	@include h(260px);
+	@include bgCol($white);
+	margin-top: -45px;
+	
+	&__container {
+		@include w($w90);
+		margin: 0 auto;
+		
+		&--img {
+			margin: 70px 0 20px 50%;
+			transform: translateX(-50%);
+		}
+
+		&--p {
+			font-family: 'Open Sans', sans-serif;
+			color: #81868e;
+			@include fs(14px);
+			font-weight: 400;
+			text-align: $tac;
+			margin-bottom: 35px;
+		}
+
+		&--ul {
+			@include fs(0);
+			@include w(190px);
+			@include h(46px);
+			display: block;
+			margin-left: 50%;
+			transform: translateX(-50%);
+		}
+
+		& a {
+			text-decoration: none;
+		}
+
+		&--li {
+			display: inline-block;
+			padding: 5px;
+		}
+
+		&--img1 {
+			@include w(26px);
+			@include h(26px);
+			
+			&:hover {
+				transform: scale(1.5);
+			}
+		}
+	}
+}
+
+.slider {
+	& .slick-dots {
+		transform: translateY(50px);
+	}
+}
+
+.slider1 {
+	& .slick-dots {
+		transform: translateY(-170px);
+	}
+}
+
+.slick-dots {
+
+    li {
+        
+        button {
+           
+            &:before {
+                font-size: 40px;
+                color: $green;
+            }
+        }
+        &.slick-active button:before {
+            color: $green;
+        }
+    }
+}
+
+
+#updown {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  cursor: pointer;
+  opacity: 0;
+  
+  &:hover {
+	transform: scale(1.1);
+  }
+}
